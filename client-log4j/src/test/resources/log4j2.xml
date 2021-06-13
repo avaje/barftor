@@ -1,0 +1,20 @@
+<Configuration packages="cd.connect.logging" monitorInterval="30" verbose="true">
+  <Appenders>
+<!--    <Barftor/> -->
+    <Console name="STDOUT" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%thread] %-5level %class{36}.%M %logger{36} - %msg%n"/>
+    </Console>
+  </Appenders>
+
+  <Loggers>
+    <Logger name="io.ebean.SQL" level="debug"/>
+    <Logger name="io.ebean.TXN" level="debug"/>
+    <Logger name="io.ebean.docker" level="trace"/>
+    <Logger name="io.avaje" level="trace"/>
+    <Logger name="jersey-logging" level="trace"/>
+
+    <Root level="trace">
+      <AppenderRef ref="STDOUT"/>
+    </Root>
+  </Loggers>
+</Configuration>

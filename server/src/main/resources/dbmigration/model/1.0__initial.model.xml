@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<migration xmlns="http://ebean-orm.github.io/xml/ns/dbmigration">
+    <changeSet type="apply">
+        <createTable name="error_env" pkName="pk_error_env">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="error_id" type="bigint" notnull="true" references="error_stack.id" foreignKeyName="fk_error_env_error_id" foreignKeyIndex="ix_error_env_error_id"/>
+            <column name="app" type="varchar(30)"/>
+            <column name="env" type="varchar(30)"/>
+            <column name="line" type="varchar(400)"/>
+            <column name="when_created" type="timestamp" notnull="true"/>
+            <column name="version" type="bigint" notnull="true"/>
+        </createTable>
+        <createTable name="error_instance" pkName="pk_error_instance">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="error_id" type="bigint" notnull="true" references="error_stack.id" foreignKeyName="fk_error_instance_error_id" foreignKeyIndex="ix_error_instance_error_id"/>
+            <column name="app" type="varchar(30)" notnull="true"/>
+            <column name="env" type="varchar(30)" notnull="true"/>
+            <column name="line" type="varchar(400)" notnull="true"/>
+            <column name="when_created" type="timestamp" notnull="true"/>
+            <column name="version" type="bigint" notnull="true"/>
+        </createTable>
+        <createTable name="error_stack" pkName="pk_error_stack">
+            <column name="id" type="bigint" primaryKey="true"/>
+            <column name="hash" type="varchar(50)" notnull="true"/>
+            <column name="match_line" type="varchar(400)" notnull="true"/>
+            <column name="stack_lines" type="clob"/>
+            <column name="when_created" type="timestamp" notnull="true"/>
+            <column name="version" type="bigint" notnull="true"/>
+        </createTable>
+    </changeSet>
+</migration>

@@ -1,0 +1,23 @@
+<Configuration packages="cd.connect.logging" monitorInterval="30" verbose="true">
+  <Appenders>
+    <Console name="STDOUT" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%thread] %-5level %class{36}.%M %logger{36} - %msg%n"/>
+    </Console>
+  </Appenders>
+
+  <Loggers>
+    <AsyncLogger name="com.twg.fulfillment" level="debug"/>
+    <AsyncLogger name="com.twg.marketplace" level="debug"/>
+    <AsyncLogger name="io.ebean.SQL" level="debug"/>
+    <AsyncLogger name="io.ebean.TXN" level="debug"/>
+    <AsyncLogger name="io.ebean.docker" level="trace"/>
+
+    <AsyncLogger name="io.avaje" level="trace"/>
+
+    <AsyncLogger name="jersey-logging" level="trace"/>
+
+    <AsyncRoot level="info">
+      <AppenderRef ref="STDOUT"/>
+    </AsyncRoot>
+  </Loggers>
+</Configuration>

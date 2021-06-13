@@ -1,0 +1,17 @@
+<Configuration packages="cd.connect.logging" monitorInterval="30" verbose="true">
+  <Appenders>
+    <Barftor name="Barftor"/>
+    <Console name="STDOUT" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%thread] %-5level %class{36}.%M %logger{36} - %msg%n"/>
+    </Console>
+  </Appenders>
+
+  <Loggers>
+    <Logger name="org" level="debug"/>
+
+    <Root level="debug">
+      <AppenderRef ref="Barftor"/>
+      <AppenderRef ref="STDOUT"/>
+    </Root>
+  </Loggers>
+</Configuration>

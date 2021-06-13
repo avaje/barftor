@@ -1,0 +1,89 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "",
+    "version" : ""
+  },
+  "paths" : {
+    "/api/ingest" : {
+      "post" : {
+        "tags" : [ ],
+        "summary" : "",
+        "description" : "",
+        "requestBody" : {
+          "content" : {
+            "application/x-www-form-urlencoded" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/IngestForm"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "No content"
+          }
+        }
+      }
+    },
+    "/api/ingest/ok" : {
+      "get" : {
+        "tags" : [ ],
+        "summary" : "",
+        "description" : "",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health" : {
+      "get" : {
+        "tags" : [ ],
+        "summary" : "",
+        "description" : "",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "IngestForm" : {
+        "type" : "object",
+        "properties" : {
+          "app" : {
+            "maxLength" : 30,
+            "type" : "string"
+          },
+          "env" : {
+            "maxLength" : 30,
+            "type" : "string"
+          },
+          "stackTrace" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}

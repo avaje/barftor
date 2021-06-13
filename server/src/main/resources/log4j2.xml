@@ -1,0 +1,17 @@
+<Configuration monitorInterval="90" verbose="true">
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%thread] %-5level %class{36}.%M %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <AsyncLogger name="org.eclipse.jetty" level="warn"/>
+<!--        <AsyncLogger name="io.ebean.SQL" level="debug"/>-->
+<!--        <AsyncLogger name="io.ebean.TXN" level="debug"/>-->
+
+        <AsyncRoot level="debug">
+            <AppenderRef ref="STDOUT"/>
+        </AsyncRoot>
+    </Loggers>
+</Configuration>
