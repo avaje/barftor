@@ -79,6 +79,9 @@
             "maxLength" : 30,
             "type" : "string"
           },
+          "message" : {
+            "type" : "string"
+          },
           "stackTrace" : {
             "type" : "string"
           }

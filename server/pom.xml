@@ -140,9 +140,20 @@
           </from>
           <to>
             <!--  <image>docker.io/my-docker-id/my-app</image> -->
-            <image>myimage2</image>
+            <image>barftor</image>
+            <tags>
+              <tag>latest</tag>
+            </tags>
           </to>
         </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>dockerBuild</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>io.dinject</groupId>
