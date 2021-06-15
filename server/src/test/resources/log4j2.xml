@@ -14,8 +14,6 @@
 
     <AsyncLogger name="io.avaje" level="trace"/>
 
-    <AsyncLogger name="jersey-logging" level="trace"/>
-
     <AsyncRoot level="info">
       <AppenderRef ref="STDOUT"/>
     </AsyncRoot>
