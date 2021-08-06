@@ -35,8 +35,7 @@ public class BarftorAppender extends AbstractAppender {
     this.appName = appName;
     this.envName = envName;
     this.httpClient = HttpClientContext.newBuilder()
-      //.withRequestListener(new RequestLogger())
-      .withBaseUrl(url)
+      .baseUrl(url)
       .build();
   }
 

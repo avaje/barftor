@@ -13,11 +13,12 @@
   <artifactId>server</artifactId>
 
   <properties>
-    <avaje.inject.version>6.0.RC4</avaje.inject.version>
-    <avaje.http.version>1.5</avaje.http.version>
-    <ebean.version>12.9.2</ebean.version>
+    <avaje.inject.version>6.6</avaje.inject.version>
+    <avaje.http.version>1.11</avaje.http.version>
+    <ebean.version>12.11.0</ebean.version>
     <maven.compiler.source>15</maven.compiler.source>
     <maven.compiler.target>15</maven.compiler.target>
+
   </properties>
 
   <dependencies>
@@ -39,17 +40,22 @@
     <dependency>
       <groupId>io.avaje</groupId>
       <artifactId>avaje-jex</artifactId>
-      <version>1.5</version>
+      <version>1.7</version>
     </dependency>
     <dependency>
       <groupId>io.ebean</groupId>
       <artifactId>ebean</artifactId>
       <version>${ebean.version}</version>
     </dependency>
+<!--    <dependency>-->
+<!--      <groupId>io.ebean</groupId>-->
+<!--      <artifactId>ebean-migration-auto</artifactId>-->
+<!--      <version>1.1</version>-->
+<!--    </dependency>-->
     <dependency>
       <groupId>io.ebean</groupId>
       <artifactId>ebean-migration</artifactId>
-      <version>12.5.0</version>
+      <version>12.11.0</version>
     </dependency>
 
     <!-- Annotation processors -->
@@ -108,14 +114,14 @@
     <dependency>
       <groupId>io.avaje</groupId>
       <artifactId>avaje-jex-test</artifactId>
-      <version>1.5</version>
+      <version>1.7</version>
       <scope>test</scope>
     </dependency>
 
     <dependency>
       <groupId>io.avaje</groupId>
       <artifactId>avaje-http-client</artifactId>
-      <version>1.5</version>
+      <version>1.11</version>
       <scope>test</scope>
     </dependency>
 
@@ -133,7 +139,7 @@
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
-        <version>3.1.0</version>
+        <version>3.1.2</version>
         <configuration>
           <from>
             <image>docker://adoptopenjdk:15-jre</image>
@@ -177,7 +183,7 @@
         <extensions>true</extensions>
         <configuration>
           <tiles>
-            <tile>io.ebean.tile:enhancement:${ebean.version}</tile>
+            <tile>io.ebean.tile:enhancement:12.11.0</tile>
           </tiles>
         </configuration>
       </plugin>

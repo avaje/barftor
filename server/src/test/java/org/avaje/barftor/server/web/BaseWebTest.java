@@ -1,12 +1,10 @@
 package org.avaje.barftor.server.web;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.avaje.barftor.server.Main;
 import io.avaje.http.client.HttpClientContext;
 import io.avaje.http.client.JacksonBodyAdapter;
-import io.avaje.http.client.RequestLogger;
 import io.avaje.inject.BeanScope;
 import io.avaje.jex.Jex;
+import org.avaje.barftor.server.Main;
 import org.junit.jupiter.api.AfterAll;
 
 import java.util.Random;
@@ -33,9 +31,8 @@ public class BaseWebTest {
 
   public static HttpClientContext createWebClient() {
     return HttpClientContext.newBuilder()
-      .withBaseUrl(baseUrl)
-      .withRequestListener(new RequestLogger())
-      .withBodyAdapter(new JacksonBodyAdapter(new ObjectMapper()))
+      .baseUrl(baseUrl)
+      .bodyAdapter(new JacksonBodyAdapter())
       .build();
   }
 }

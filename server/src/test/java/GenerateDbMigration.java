@@ -10,7 +10,10 @@ public class GenerateDbMigration {
   public static void main(String[] args) throws IOException {
 
     DbMigration dbMigration = DbMigration.create();
-    dbMigration.setPlatform(Platform.POSTGRES);
+    dbMigration.addPlatform(Platform.POSTGRES);
+    dbMigration.addPlatform(Platform.MYSQL);
+    dbMigration.addPlatform(Platform.SQLITE);
+    dbMigration.setIncludeIndex(true);
     dbMigration.setPathToResources("server/src/main/resources");
 
     dbMigration.generateMigration();

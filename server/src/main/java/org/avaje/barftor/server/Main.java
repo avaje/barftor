@@ -1,7 +1,6 @@
 package org.avaje.barftor.server;
 
 import io.avaje.config.Config;
-import io.avaje.inject.ApplicationScope;
 import io.avaje.inject.BeanScope;
 import io.avaje.jex.Jex;
 import io.avaje.jex.Routing;
@@ -19,9 +18,10 @@ public class Main {
 
     final int port = Config.getInt("server.http.port", 8905);
 
+    final BeanScope beanScope = BeanScope.newBuilder().withShutdownHook(true).build();
     final Jex.Server server =
       new Main()
-        .run(port, ApplicationScope.scope());
+        .run(port, beanScope);
 
     log.info("App started");
   }

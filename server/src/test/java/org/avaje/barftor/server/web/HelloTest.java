@@ -12,10 +12,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 class HelloTest {
 
   static TestPair pair = TestPair.create(Jex.create()
-    .routing(routing -> {
-      routing
-        .get("hello", ctx -> ctx.text("ok"));
-    }));
+    .routing(routing -> routing
+      .get("hello", ctx -> ctx.text("ok"))));
 
   @Test
   void hello() {
