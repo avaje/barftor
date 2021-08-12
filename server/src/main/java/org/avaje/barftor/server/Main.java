@@ -3,12 +3,8 @@ package org.avaje.barftor.server;
 import io.avaje.config.Config;
 import io.avaje.inject.BeanScope;
 import io.avaje.jex.Jex;
-import io.avaje.jex.Routing;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Iterator;
-import java.util.ServiceLoader;
 
 public class Main {
 
@@ -18,18 +14,15 @@ public class Main {
 
     final int port = Config.getInt("server.http.port", 8905);
 
-    final BeanScope beanScope = BeanScope.newBuilder().withShutdownHook(true).build();
-    final Jex.Server server =
-      new Main()
-        .run(port, beanScope);
-
+    final BeanScope beanScope = BeanScope.newBuilder().build();
+    new Main().run(port, beanScope);
     log.info("App started");
   }
 
   public Jex.Server run(int port, BeanScope beanScope) {
     return Jex.create()
+      .configureWith(beanScope)
       .port(port)
-      .routing(beanScope.list(Routing.Service.class))
       .start();
   }
 }
