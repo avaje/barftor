@@ -3,7 +3,10 @@ package org.avaje.barftor.server.web;
 import io.avaje.http.client.HttpClientContext;
 import io.avaje.http.client.JacksonBodyAdapter;
 import io.avaje.inject.BeanScope;
+import io.avaje.inject.BeanScopeBuilder;
 import io.avaje.jex.Jex;
+import io.ebean.DB;
+import io.ebean.Database;
 import org.avaje.barftor.server.Main;
 import org.junit.jupiter.api.AfterAll;
 
@@ -15,11 +18,12 @@ public class BaseWebTest {
   public static Jex.Server webServer;
   public static BeanScope beanScope;
 
-  public static HttpClientContext init(BeanScope scope) {
+  public static HttpClientContext init(BeanScopeBuilder builder) {
+    builder.withBean(Database.class, DB.getDefault());
     int port = 11000 + new Random().nextInt(1000);
-    beanScope = scope;
+    beanScope = builder.build();
     baseUrl = "http://localhost:" + port;
-    webServer = new Main().run(port, scope);
+    webServer = new Main().run(port, beanScope);
     return createWebClient();
   }
 

@@ -15,6 +15,13 @@ public class Main {
     final int port = Config.getInt("server.http.port", 8905);
 
     final BeanScope beanScope = BeanScope.newBuilder().build();
+
+//    ShutdownManager.deregisterShutdownHook();
+//    log.info("shutting down ...");
+//    ShutdownManager.shutdown();
+//    LogManager.shutdown();
+//    log.info("stopped");
+
     new Main().run(port, beanScope);
     log.info("App started");
   }

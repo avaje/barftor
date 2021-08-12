@@ -15,9 +15,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class IngestControllerComponentTest extends BaseWebTest {
 
-  static HttpClientContext client = init(BeanScope
-    .newBuilder()
-    .build());
+  static HttpClientContext client = init(BeanScope.newBuilder());
+
+  @Test
+  void one() {
+    client.request().path("health").GET().asVoid();
+  }
 
   @Test
   void ingest() {

@@ -1,11 +1,12 @@
 <Configuration monitorInterval="30" verbose="true">
   <Appenders>
     <Console name="STDOUT" target="SYSTEM_OUT">
-      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%thread] %-5level %class{36}.%M %logger{36} - %msg%n"/>
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
     </Console>
   </Appenders>
 
   <Loggers>
+    <Logger name="org.eclipse" level="warn"/>
     <Logger name="io.ebean.SQL" level="debug"/>
     <Logger name="io.ebean.TXN" level="debug"/>
     <Logger name="io.ebean.docker" level="trace"/>
