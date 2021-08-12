@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Factory
-class Configuration  {
+class Configuration {
 
   private static final Logger log = LoggerFactory.getLogger(Configuration.class);
 
@@ -26,7 +26,7 @@ class Configuration  {
 
   @PreDestroy
   public void shutdown() {
-
+    log.info("shutdown beans ... ");
   }
 
 }

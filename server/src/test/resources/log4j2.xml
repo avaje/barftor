@@ -6,15 +6,15 @@
   </Appenders>
 
   <Loggers>
-    <Logger name="org.eclipse" level="warn"/>
-    <Logger name="io.ebean.SQL" level="debug"/>
-    <Logger name="io.ebean.TXN" level="debug"/>
-    <Logger name="io.ebean.docker" level="trace"/>
+    <AsyncLogger name="org.eclipse" level="warn"/>
+    <AsyncLogger name="io.ebean.SQL" level="debug"/>
+    <AsyncLogger name="io.ebean.TXN" level="debug"/>
+    <AsyncLogger name="io.ebean.docker" level="trace"/>
 
-    <Logger name="io.avaje" level="trace"/>
+    <AsyncLogger name="io.avaje" level="trace"/>
 
-    <Root level="info">
+    <AsyncRoot level="trace">
       <AppenderRef ref="STDOUT"/>
-    </Root>
+    </AsyncRoot>
   </Loggers>
 </Configuration>

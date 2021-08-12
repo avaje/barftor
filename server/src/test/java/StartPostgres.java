@@ -14,6 +14,6 @@ public class StartPostgres {
     //config.setExtensions("hstore,pgcrypto");
 
     PostgresContainer container = new PostgresContainer(config);
-    container.stop();//startWithDropCreate();
+    container.startWithDropCreate();
   }
 }

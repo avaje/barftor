@@ -12,7 +12,7 @@
       <!--        <AsyncLogger name="io.ebean.SQL" level="debug"/>-->
 <!--        <AsyncLogger name="io.ebean.TXN" level="debug"/>-->
 
-        <AsyncRoot level="debug">
+        <AsyncRoot level="trace">
             <AppenderRef ref="STDOUT"/>
         </AsyncRoot>
     </Loggers>
