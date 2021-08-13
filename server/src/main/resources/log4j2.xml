@@ -1,19 +1,20 @@
 <Configuration monitorInterval="90" verbose="true" shutdownHook="disable">
     <Appenders>
         <Console name="STDOUT" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%thread] %-5level %class{36}.%M %logger{36} - %msg%n"/>
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
         </Console>
     </Appenders>
 
     <Loggers>
-        <AsyncLogger name="org.eclipse.jetty" level="warn"/>
-        <AsyncLogger name="io.avaje.classpath" level="info"/>
+        <Logger name="org.eclipse.jetty" level="warn"/>
+        <Logger name="io.avaje.classpath" level="info"/>
 
-      <!--        <AsyncLogger name="io.ebean.SQL" level="debug"/>-->
+      <Logger name="io.ebean" level="debug"/>
+      <Logger name="io.avaje.jex" level="debug"/>
 <!--        <AsyncLogger name="io.ebean.TXN" level="debug"/>-->
 
-        <AsyncRoot level="trace">
+        <Root level="info">
             <AppenderRef ref="STDOUT"/>
-        </AsyncRoot>
+        </Root>
     </Loggers>
 </Configuration>

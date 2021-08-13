@@ -26,7 +26,7 @@ public class Main {
     new Main().run(port, beanScope)
       .onShutdown(() -> {
         ShutdownManager.shutdown();
-        LogManager.shutdown();
+        //LogManager.shutdown();
       });
     log.info("App started {}ms jvm:{}ms", (System.currentTimeMillis() - start), jvmUptime());
   }
