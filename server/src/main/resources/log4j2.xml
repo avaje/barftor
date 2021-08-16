@@ -9,7 +9,8 @@
         <Logger name="org.eclipse.jetty" level="warn"/>
         <Logger name="io.avaje.classpath" level="info"/>
 
-      <Logger name="io.ebean" level="debug"/>
+      <Logger name="io.ebean" level="info"/>
+<!--      <Logger name="io.ebeaninternal" level="debug"/>-->
       <Logger name="io.avaje.jex" level="debug"/>
 <!--        <AsyncLogger name="io.ebean.TXN" level="debug"/>-->
 
